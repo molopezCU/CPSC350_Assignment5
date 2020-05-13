@@ -7,8 +7,8 @@ Assignment 5
 */
 
 #include "TreeNode.h"
-#include "FacultyRecord.h"
-#include "StudentRecord.h"
+#include "Faculty.h"
+#include "Students.h"
 #include <fstream>
 
 using namespace std;
@@ -42,10 +42,9 @@ class BST
 		TreeNode<T> *root;
 };
 
-class FacultyTable : public BST<FacultyRecord>
-{
+class FacultyTable : public BST<Faculty>
 	public:
-		void recRemoveStudentId(TreeNode<FacultyRecord> *node, bool &abortCmd, int id)
+		void recRemoveStudentId(TreeNode<FacultyR> *node, bool &abortCmd, int id)
 		{
 			if (!abortCmd)
 			{

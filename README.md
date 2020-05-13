@@ -5,20 +5,19 @@ molopez@chapman.edu
 Assignment 5
 
 https://www.geeksforgeeks.org/inheritance-in-c/
-
 Data Structures and Algorithms in C++ (2nd Edition)
 
 
 BST.h
 DoublyLinkedList.h
-FacultyRecord.h
+Faculty.h
 GenStack.h
+ListNode.h
 Menu.h
-StudentRecord.h
+Student.h
 TreeNode.h
 
-ListNode.cpp
+Faculty.cpp
 main.cpp
 Menu.cpp
-Students.cpp
-Faculty.cpp
+Student.cpp
