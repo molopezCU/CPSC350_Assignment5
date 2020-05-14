@@ -13,7 +13,6 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
-
 	Menu menu;
 	menu.promptOption();
 	return 0;
