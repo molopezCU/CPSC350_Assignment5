@@ -8,7 +8,7 @@ Assignment 5
 
 #include "TreeNode.h"
 #include "Faculty.h"
-#include "Students.h"
+#include "Student.h"
 #include <fstream>
 
 using namespace std;
@@ -43,8 +43,9 @@ class BST
 };
 
 class FacultyTable : public BST<Faculty>
+{
 	public:
-		void recRemoveStudentId(TreeNode<FacultyR> *node, bool &abortCmd, int id)
+		void recRemoveStudentId(TreeNode<Faculty> *node, bool &abortCmd, int id)
 		{
 			if (!abortCmd)
 			{
@@ -63,13 +64,13 @@ class FacultyTable : public BST<Faculty>
 				return;
 		}
 
-		bool removeAdviseeID(FacultyRecord val, int adviseeId)
+		bool removeAdviseeID(Faculty val, int adviseeId)
 		{
 			if (root == NULL)
 				return false;
 			else
 			{
-				TreeNode<FacultyRecord> *curr = root; //start at the root
+				TreeNode<Faculty> *curr = root; //start at the root
 				while (curr->key != val)
 				{
 					if (val < curr->key)
@@ -91,13 +92,13 @@ class FacultyTable : public BST<Faculty>
 			return abortCmd;
 		}
 
-		bool replaceStudentId(FacultyRecord oldVal, FacultyRecord newVal, int studId)
+		bool replaceStudentId(Faculty oldVal, Faculty newVal, int studId)
 		{
 			if (root == NULL)
 				return false;
 			else
 			{
-				TreeNode<FacultyRecord> *curr = root; //start at the root
+				TreeNode<Faculty> *curr = root; //start at the root
 				while (curr->key != oldVal)
 				{
 					if (oldVal < curr->key)
@@ -123,16 +124,16 @@ class FacultyTable : public BST<Faculty>
 		}
 };
 
-class StudentTable : public BST<StudentRecord>
+class StudentTable : public BST<Student>
 {
 	public:
-		bool replaceAdvisorId(StudentRecord val)
+		bool replaceAdvisorId(Student val)
 		{
 			if (root == NULL)
 				return false;
 			else
 			{
-				TreeNode<StudentRecord> *curr = root; //start at the root
+				TreeNode<Student> *curr = root; //start at the root
 				while (curr->key != val)
 				{
 					if (val < curr->key)

@@ -1,9 +1,9 @@
 /*
-Name: Nick Lai
-Student ID#: 2282417
-Chapman email: lai137@mail.chapman.edu
-Course Number and Section: 350-02
-Assignment: 5
+Moises Lopez
+2297564
+molopez@chapman.edu
+350-02
+Assignment 5
 */
 
 #include <iostream>

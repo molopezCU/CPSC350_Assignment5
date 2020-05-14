@@ -5,6 +5,7 @@ molopez@chapman.edu
 Assignment 5
 
 https://www.geeksforgeeks.org/inheritance-in-c/
+http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
 Data Structures and Algorithms in C++ (2nd Edition)
 
 

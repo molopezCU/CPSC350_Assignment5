@@ -36,37 +36,37 @@ class Faculty
 		bool containsAdviseeID(int id);
 		bool hasNoAdvisees();
 
-		bool operator == (const Faculty &f)
+		bool operator==(const Faculty &f)
 		{
 			return (this->id == f.id);
 		}
 
-		bool operator != (const Faculty &f)
+		bool operator!=(const Faculty &f)
 		{
 			return (this->id != f.id);
 		}
 
-		bool operator <= (const Faculty &f)
+		bool operator<=(const Faculty &f)
 		{
 			return (this->id <= f.id);
 		}
 
-		bool operator < (const Faculty &f)
+		bool operator<(const Faculty &f)
 		{
 			return (this->id < f.id);
 		}
 
-		bool operator >= (const Faculty &f)
+		bool operator>=(const Faculty &f)
 		{
 			return (this->id >= f.id);
 		}
 
-		bool operator > (const Faculty &f)
+		bool operator>(const Faculty &f)
 		{
 			return (this->id > f.id);
 		}
 
-		friend ostream& operator << (ostream& output, const Faculty &f)
+		friend ostream& operator<<(ostream& output, const Faculty &f)
 		{
 			output << "Faculty Member Name: " << f.name << endl;
 			output << "Faculty ID: " << f.id << endl;

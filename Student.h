@@ -22,37 +22,37 @@ class Student
 		Student(string serializedSr);
 		string serialize();
 
-		bool operator == (const Student &s)
+		bool operator==(const Student &s)
 		{
 			return (this->id == s.id);
 		}
 
-		bool operator != (const Student &s)
+		bool operator!=(const Student &s)
 		{
 			return (this->id != s.id);
 		}
 
-		bool operator <= (const Student &s)
+		bool operator<=(const Student &s)
 		{
 			return (this->id <= s.id);
 		}
 
-		bool operator < (const Student &s)
+		bool operator<(const Student &s)
 		{
 			return (this->id < s.id);
 		}
 
-		bool operator >= (const Student &s)
+		bool operator>=(const Student &s)
 		{
 			return (this->id >= s.id);
 		}
 
-		bool operator > (const Student &s)
+		bool operator>(const Student &s)
 		{
 			return (this->id > s.id);
 		}
 
-		friend ostream& operator << (ostream& output, const Student &s)
+		friend ostream& operator<<(ostream& output, const Student &s)
 		{
 			output << "Student Name: " << s.name << endl;
 			output << "Student ID: " << s.id << endl;

@@ -12,8 +12,6 @@ using namespace std;
 
 Menu::Menu()
 {
-	// Load the BSTs
-	// See: http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
 	struct stat buffer;
 	if (stat (STUDENT_TABLE.c_str(), &buffer) == 0)
 	{
@@ -181,7 +179,7 @@ void Menu::printStudent()
 
 void Menu::printStudentInfo(int studentID)
 {
-	StudentRecord sr(studentID);
+	Student sr(studentID);
 	if (studentBST.contains(sr))
 		studentBST.printNode(sr);
 	else
@@ -201,7 +199,7 @@ void Menu::printFacultyMember()
 
 void Menu::printFacultyInfo(int facultyID)
 {
-	FacultyRecord fr(facultyID);
+	Faculty fr(facultyID);
 	if (facultyBST.contains(fr))
 		facultyBST.printNode(fr);
 	else
@@ -213,8 +211,8 @@ void Menu::printAdvisor()
 	if (!studentBST.isEmpty())
 	{
 		int studentID = promptInt("Enter student ID: ");
-		StudentRecord sr(studentID);
-		StudentRecord val = studentBST.find(sr);
+		Student sr(studentID);
+		Student val = studentBST.find(sr);
 		if (val.id >= 0)
 		{
 			if (val.advisorId < 0)
@@ -234,8 +232,8 @@ void Menu::printAdvisees()
 	if (!facultyBST.isEmpty())
 	{
 		int facultyID = promptInt("Enter faculty ID: ");
-		FacultyRecord fr(facultyID);
-		FacultyRecord val = facultyBST.find(fr);
+		Faculty fr(facultyID);
+		Faculty val = facultyBST.find(fr);
 		if (val.id >= 0)
 		{
 			ListNode<int> *node = val.adviseeIds->head;
@@ -243,9 +241,9 @@ void Menu::printAdvisees()
 			{
 				while (true)
 				{
-					StudentRecord sr;
+					Student sr;
 					sr.id = node->data;
-					StudentRecord stud = studentBST.find(sr);
+					Student stud = studentBST.find(sr);
 					cout << stud.name << endl;
 					if (node->next == NULL)
 						break;
@@ -351,14 +349,14 @@ void Menu::addStudent()
 	else
 		advisorIdNum = atoi(advisorId.c_str());
 	//checks if student id matches
-	StudentRecord sr(id, name, level, major, gpa, advisorIdNum);
+	Student sr(id, name, level, major, gpa, advisorIdNum);
 	if (studentBST.contains(sr))
 	{
 		cout << "ERROR. Student ID " << id << " already exists." << endl;
 		return;
 	}
 	//checks if advisorId exists.
-	FacultyRecord fr(advisorIdNum);
+	Faculty fr(advisorIdNum);
 	if (advisorIdNum == -1 || facultyBST.contains(fr))
 		studentBST.insert(sr);
 	else
@@ -375,10 +373,10 @@ void Menu::deleteStudent()
 	//prompts for student id#
 	int id = promptInt("Enter student id: ");
 	//checks if student tree contains id#
-	StudentRecord sr(id);
+	Student sr(id);
 	if (studentBST.contains(sr))
 	{
-		FacultyRecord fr;
+		Faculty fr;
 		fr.addAdviseeID(id);
 		bool successful = facultyBST.removeStudentId(id);
 		//successful = false if the student is not an advisee of any advisor
@@ -408,7 +406,7 @@ void Menu::addFacultyMember()
 	string department;
 	promptString(promptMsg, department, true);
 
-	FacultyRecord fr(id, name, level, department);
+	Faculty fr(id, name, level, department);
 
 	//enter advisee IDs
 	cout << "Enter a single advisee ID and press [Enter] to add it." << endl;
@@ -448,8 +446,8 @@ void Menu::deleteFacultyMember()
 	// Prompt for faculty id
 	int id = promptInt("Enter faculty id: ");
 	// Check if faculty tree contains id
-	FacultyRecord fr(id);
-	FacultyRecord found = facultyBST.find(fr);
+	Faculty fr(id);
+	Faculty found = facultyBST.find(fr);
 	if (found.id != -1)
 	{
 		// Check if the advisee list is empty
@@ -472,13 +470,13 @@ void Menu::changeAdvisor()
 
 	// Enter student id
 	int studID = promptInt("Enter student id: ");
-	StudentRecord sr(studID);
-	StudentRecord found = studentBST.find(sr);
-	FacultyRecord old(found.advisorId);
+	Student sr(studID);
+	Student found = studentBST.find(sr);
+	Faculty old(found.advisorId);
 	if (found.id != -1)
 	{
 		int facultyID = promptInt("Enter new advisor id: ");
-		FacultyRecord newr(facultyID);
+		Faculty newr(facultyID);
 		if (facultyBST.contains(newr))
 		{
 			sr.advisorId = facultyID;
@@ -506,8 +504,8 @@ void Menu::removeAdvisee()
 
 	// Enter faculty id
 	int facultyID = promptInt("Enter faculty id: ");
-	FacultyRecord fr(facultyID);
-	FacultyRecord found = facultyBST.find(fr);
+	Faculty fr(facultyID);
+	Faculty found = facultyBST.find(fr);
 	if (found != -1)
 	{
 		// Enter student id
