@@ -16,7 +16,7 @@ class TreeNode
 	public:
 		TreeNode();
 		TreeNode(T key);
-		virtual ~TreeNode(); // why virtual?
+		virtual ~TreeNode();
 
 		T key;
 		TreeNode<T> *left;
