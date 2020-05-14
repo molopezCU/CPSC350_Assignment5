@@ -6,11 +6,12 @@ Assignment 5
 
 https://www.geeksforgeeks.org/inheritance-in-c/
 http://stackoverflow.com/questions/12774207/fastest-way-to-check-if-a-file-exist-using-standard-c-c11-c
+https://isocpp.org/wiki/faq/serialization
 Data Structures and Algorithms in C++ (2nd Edition)
 
 
 BST.h
-DoublyLinkedList.h
+LinkedList.h
 Faculty.h
 GenStack.h
 ListNode.h

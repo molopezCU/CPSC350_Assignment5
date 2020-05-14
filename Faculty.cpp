@@ -16,7 +16,7 @@ Faculty::Faculty()
 	name = "";
 	level = "";
 	department = "";
-	adviseeIds = new DoublyLinkedList<int>();
+	adviseeIds = new LinkedList<int>();
 }
 
 Faculty::~Faculty()
@@ -30,7 +30,7 @@ Faculty::Faculty(int newID)
 	name = "";
 	level = "";
 	department = "";
-	adviseeIds = new DoublyLinkedList<int>();
+	adviseeIds = new LinkedList<int>();
 }
 
 Faculty::Faculty(int newID, string newName, string newLevel, string newDepartment)
@@ -39,12 +39,12 @@ Faculty::Faculty(int newID, string newName, string newLevel, string newDepartmen
 	name = newName;
 	level = newLevel;
 	department = newDepartment;
-	adviseeIds = new DoublyLinkedList<int>();
+	adviseeIds = new LinkedList<int>();
 }
 
 Faculty::Faculty(string serializedFr)
 {
-	adviseeIds = new DoublyLinkedList<int>();
+	adviseeIds = new LinkedList<int>();
 	deserialize(serializedFr);
 }
 
